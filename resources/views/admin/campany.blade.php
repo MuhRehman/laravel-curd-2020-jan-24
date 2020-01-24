@@ -10,7 +10,7 @@ Rehman laravel Project
 
 
 
-<form action="{{ route('addimage') }}" method="POST">
+<form action="{{ route('addimage') }}" method="POST" enctype="multipart/form-data">
    {{ csrf_field() }}
     <div class="form-row">
       <div class="col-md-3 mb-3">

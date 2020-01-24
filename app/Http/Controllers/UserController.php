@@ -19,14 +19,14 @@ class UserController extends Controller
     $user->name= $request->input('name');
     $user->email= $request->input('email');
     // $user->image= $request->input('image');
-    if ($request->hasFile('image')) {
+    if ($request->hasfile('image')) {
         $image = $request->file('image');
         $name = time().'.'.$image->getClientOriginalExtension();
         $destinationPath = public_path('upload/Images/');
         $image->move($destinationPath, $name);
         
       }else {
-          dd("rehman");
+          dd($user->image= $request->input('image'));
       }
       $user->save();
       return back()->with('success','Image Upload successfully');
