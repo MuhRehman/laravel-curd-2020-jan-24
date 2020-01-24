@@ -10,23 +10,24 @@ Rehman laravel Project
 
 
 
-<form>
+<form action="{{ route('addimage') }}" method="POST">
+   {{ csrf_field() }}
     <div class="form-row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault01">Name <span style="color:red">*</span></label>
-        <input type="text" class="form-control" id="validationDefault01" placeholder="First name"  required>
+        <input type="text" name="name" class="form-control" id="validationDefault01" placeholder="First name"  required>
       </div>
       
     
       <div class="col-md-3 mb-3">
         <label for="validationDefault02">Email</label>
-        <input type="text" class="form-control" id="validationDefault02" placeholder="example@yahoo.com"  required>
+        <input type="text" name="email" class="form-control" id="validationDefault02" placeholder="example@yahoo.com"  required>
       </div>
       <div class="col-md-3 mb-3">
        
         <div class="form-group">
             <label for="exampleFormControlFile1">Logo file input</label>
-            <input type="file" class="form-control-file mt-1" id="exampleFormControlFile1">
+            <input type="file" name="image" class="form-control-file mt-1" id="exampleFormControlFile1">
           </div>
     </div>
       <div class="col-md-3 mb-3">
