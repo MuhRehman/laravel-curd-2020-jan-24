@@ -7,10 +7,10 @@ use App\user1;
 
 class UserController extends Controller
 {
-   public function  campany()
-   {
-     return view('admin.campany');
-   }
+  //  public function  campany()
+  //  {
+  //    return view('admin.campany');
+  //  }
    public function  store(Request $request )
    {
    
@@ -19,7 +19,7 @@ class UserController extends Controller
     // print_r($user);
     $user->name= $request->input('name');
     $user->email= $request->input('email');
-    // $user->image= $request->input('image');
+    $user->image= $request->input('image');
     // dd($user->image= $request->input('image'));
     // if ($request->hasfile('image')) {
     //   // dd("rr");
@@ -40,21 +40,32 @@ class UserController extends Controller
             dd("REhman");
       }
       
-      $data =  user1::all();
-      
-      return back()->with('campany',$data);
-     
-    
-    
+      // $employee =  user1::all();
+      // dd($employee);
+   
+      $employee = user1::all();
+      return view('admin.campany', ['employee' => $employee]);
     }
 
+
+
    
 
-  //  public function  display(Request $request )
+  //   public  function  delete($id)
   //  {
-   
-  //   $data = new user1::all();
-    
+  //   $employ = user1::find($id);
+  //   $employ->delete();
+  //   return view('admin.campany');
+  //   // dd("rehman");
+  //   // if($employ){
+  //   //   session()->flash('danger','Delete successfully');
+  //   //   return view('admin.campany');
+  //   // }else {
+  //   //   dd("Rehman");
+  //   // }
+  
+  //   // return redirect('admin/campany');
+
     
   //   }
 }

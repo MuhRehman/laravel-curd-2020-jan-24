@@ -20,13 +20,9 @@ Route::get('admin', function () {
 Route::get('campany', function () {
     return view('admin.campany');
 });
-Route::get('campany','UserController@campany');
-Route::post('/campany','UserController@store')->name('addimage');
-
+// Route::get('campany','UserController@campany');
+Route::post('/campany','UserController@store')->name('addrecord');
+// Route::get('/delete/{id}','UserController@delete');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

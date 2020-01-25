@@ -10,7 +10,7 @@ Rehman laravel Project
 
 
 
-<form action="{{ route('addimage') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('addrecord') }}" method="post" enctype="multipart/form-data">
    {{ csrf_field() }}
     <div class="form-row">
       <div class="col-md-3 mb-3">
@@ -31,7 +31,7 @@ Rehman laravel Project
           </div>
     </div>
       <div class="col-md-3 mb-3">
-        <button class="btn mt-4 text-center btn-large btn-primary" type="submit">Submit form</button>   
+        <button class="btn mt-4 text-center btn-large btn-primary" type="submit">Submit</button>   
     </div>
     </div>
     
@@ -66,18 +66,26 @@ Rehman laravel Project
                        <th>Delete</th>
                    </thead>
     <tbody>
-    
+      
+    @foreach ($employee as $result)
+        {{-- {{ dd($employee) }} --}}
+   
+
     <tr>
     <td><input type="checkbox" class="checkthis" /></td>
-    <td>Mohsin</td>
-    <td>Irshad</td>
-    <td><img src="" alt="logo"></td>
+    <td>{{$result ->name}}</td>
+    <td>{{$result ->email}}</td>
+    {{-- <td>{{$result ->image}}</td> --}}
+    <td><img style="weight:23px; height:33px;" src="upload\Images\{{$result ->image }}" alt=""></td>
    
     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    <td>
+   
+    <a  href="/delete/{{ $result ->id}}">Delete</a></td>
+    {{-- <td><a  action="delete" data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" type="delete" ><span class="glyphicon glyphicon-trash"></span></button></a></td> --}}
     </tr>
     
-
+    @endforeach
     
    
     
