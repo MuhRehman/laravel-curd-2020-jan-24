@@ -10,7 +10,7 @@ Rehman laravel Project
 
 
 
-<form action="{{ route('addimage') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('addimage') }}" method="post" enctype="multipart/form-data">
    {{ csrf_field() }}
     <div class="form-row">
       <div class="col-md-3 mb-3">
@@ -27,7 +27,7 @@ Rehman laravel Project
        
         <div class="form-group">
             <label for="exampleFormControlFile1">Logo file input</label>
-            <input type="file" name="image" class="form-control-file mt-1" id="exampleFormControlFile1">
+            <input type="file" data-preview="#preview" name="image" class="form-control-file mt-1" id="exampleFormControlFile1">
           </div>
     </div>
       <div class="col-md-3 mb-3">
@@ -43,7 +43,12 @@ Rehman laravel Project
 		
         
         <div class="col-md-12">
-        <h4>Bootstrap Snipp for Datatable</h4>
+          @if(Session::has('success'))
+    <div class="alert alert-info">
+        {{session('success')}}
+    </div>
+@endif
+
         <div class="table-responsive">
 
                 
